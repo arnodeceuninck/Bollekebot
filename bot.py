@@ -13,11 +13,9 @@ word_responses = {"slapen": "Slaapwel!",
                   "hond": "Woef",
                   "haan": "Kukeleku",
                   "vis": "Blub",
-                  "linux": linux_copy_pasta,
-                  "aesculapia": "ieuw",
-                  "aescu": "ieuw"}
+                  "linux": linux_copy_pasta}
 # Multiple keys with same value
-word_responses.update(dict.fromkeys(['eten', 'lunchen', 'dinner', 'voedsel'], "Smakelijk"))
+word_responses.update(dict.fromkeys(['eten', 'lunchen', 'dinner', 'voedsel'], "Smakelijk!"))
 word_responses.update(dict.fromkeys(['vos', 'fox'], "Ring-ding-ding-ding-dingeringeding!"))
 word_responses.update(dict.fromkeys(['aescu', 'aesculapia'], "ieuw"))
 
@@ -27,7 +25,14 @@ emoji_reactions = {",p leave": "👋",
                    "succes": "❤",
                    "you have been unsubscribed due to inactivity!": "😢",
                    "dood": "🔫",
-                   "SE": "🤮"}
+                   "love": "😍",
+                   "69": "🇳🇮🇨🇪"}
+emoji_reactions.update(dict.fromkeys(['SE', 'Software Engineering'], "🤮"))
+
+
+async def add_reactions(message, reactions):
+    for reaction in reactions:
+        await message.add_reaction(reaction)
 
 
 @client.event
@@ -70,18 +75,14 @@ async def on_message(message):
     # emoji reactions
     for key in emoji_reactions:
         if key in message.content:
-            await message.add_reaction(emoji_reactions[key])
+            await add_reactions(message, emoji_reactions[key])
+            # await message.add_reaction(emoji_reactions[key])
 
     # Special cases
     if ("help" in words or "helpen" in words or "fix" in message.content) and "?" in message.content:
         await message.reply("Have you tried turning it off and on again?")
     if pattern := re.match("[iI]k ben (.*)", message.content):
         await message.reply(f"Hey {pattern.group(1)}, ik ben Bollekebot!")
-    if "69" in words:
-        await message.add_reaction("🇳")
-        await message.add_reaction("🇮")
-        await message.add_reaction("🇨")
-        await message.add_reaction("🇪")
     if message.author.display_name == "Alexander":
         if random() < 0.1:
             await message.add_reaction("🥴")
