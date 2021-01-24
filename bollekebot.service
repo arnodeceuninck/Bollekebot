@@ -1,0 +1,14 @@
+[Unit]
+Description = Bot for Discord messages
+After = network.target
+
+[Service]
+Type = simple
+ExecStart = /home/arno/Documents/Bollekebot/venv/bin/python /home/arno/Documents/Bollekebot/bot.py
+Restart = on-failure
+SyslogIdentifier = Bollekebot
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target
