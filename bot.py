@@ -15,7 +15,9 @@ word_responses = {"slapen": "Slaapwel!",
                   "vis": "Blub",
                   "linux": linux_copy_pasta}
 # Multiple keys with same value
-word_responses.update(dict.fromkeys(['eten', 'lunchen', 'dinner', 'voedsel'], "Smakelijk!"))
+word_responses.update(dict.fromkeys(
+    ['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken'],
+    "Smakelijk!"))
 word_responses.update(dict.fromkeys(['vos', 'fox'], "Ring-ding-ding-ding-dingeringeding!"))
 word_responses.update(dict.fromkeys(['aescu', 'aesculapia'], "ieuw"))
 
@@ -25,9 +27,14 @@ emoji_reactions = {",p leave": "👋",
                    "succes": "❤",
                    "you have been unsubscribed due to inactivity!": "😢",
                    "dood": "🔫",
-                   "love": "😍",
-                   "69": "🇳🇮🇨🇪"}
+                   "Bollekebot": "👀",
+                   "tea": "🍵",
+                   "cupcake": "🧁",
+                   "good bot": "😘",
+                   "bad bot": "😠"}
 emoji_reactions.update(dict.fromkeys(['SE', 'Software Engineering'], "🤮"))
+emoji_reactions.update(dict.fromkeys(['birthday', "Birthday", "verjaardag", 'Verjaardag'], "🥳"))
+emoji_reactions.update(dict.fromkeys(['love', 'liefde', 'hou van'], "😍"))
 
 
 async def add_reactions(message, reactions):
@@ -83,9 +90,16 @@ async def on_message(message):
         await message.reply("Have you tried turning it off and on again?")
     if pattern := re.match("[iI]k ben (.*)", message.content):
         await message.reply(f"Hey {pattern.group(1)}, ik ben Bollekebot!")
-    if message.author.display_name == "Alexander":
-        if random() < 0.1:
+    if message.author.display_name == "Alexander" and random() < 0.1:
             await message.add_reaction("🥴")
+    if "69" in message.content and not message.author.bot:
+        await add_reactions(message, "🇳🇮🇨🇪")
+    if "mateo" in lower_message and message.guild.name == "WINAK" and not message.author.bot:
+        await message.add_reaction(discord.utils.get(message.guild.emojis, name="mateo"))
 
+@client.event
+async def on_reaction_add(reaction, user):
+    if reaction.message.content == "try me":
+        await reaction.remove(user)
 
 client.run(TOKEN)
