@@ -1,5 +1,6 @@
 import re
 import discord
+from random import random
 
 TOKEN = "ENTER YOUR DISCORD TOKEN HERE"
 client = discord.Client()
@@ -9,7 +10,6 @@ linux_copy_pasta = "I'd just like to interject for a moment. What you're referri
 # Non case sensitive, keys must be words
 word_responses = {"eten": "Smakelijk!",
                   "slapen": "Slaapwel!",
-                  "69": "Nice",
                   "kat": "Miauw",
                   "hond": "Woef",
                   "haan": "Kukeleku",
@@ -22,7 +22,9 @@ phrase_responses = {"slok of gene slok": "WINOK"}
 
 emoji_reactions = {",p leave": "👋",
                    "succes": "❤",
-                   "you have been unsubscribed due to inactivity!": "😢"}
+                   "you have been unsubscribed due to inactivity!": "😢",
+                   "dood": "🔫",
+                   "SE": "🤮"}
 
 
 @client.event
@@ -31,10 +33,11 @@ async def on_ready():
     for guild in client.guilds:
         print(f'- {guild.name}')
 
+
 @client.event
 async def on_message(message):
     # Whoever you are, wherever you are, never say WINAK with lowercase letters
-    if "winak" in message.content.split():
+    if "winak" in message.content:
         await message.reply("*WINAK")
 
     # Don't react to my own messages (except in my own bot test channel), only react to messages in the Pomodoro channel
@@ -46,18 +49,17 @@ async def on_message(message):
 
     # Get the lowercase message without special symbol
     lower_message = message.content.lower().replace(',', '').replace('!', '').replace('?', '').replace('.', '')
-    # Get the words (split the spaces)
-    words = lower_message.split()
+    # Get the words (split the spaces), a set is faster to search in
+    words = set(lower_message.split())
 
     global phrase_responses, emoji_reactions, word_responses
 
     # Phrase responses
-    global phrase_responses
     for key in phrase_responses:
         if key in lower_message:
             await message.reply(phrase_responses[key])
 
-    # word responses, searching in dict is faster than searching in list
+    # word responses
     for word in words:
         if word in word_responses:
             await message.reply(word_responses[word])
@@ -68,10 +70,18 @@ async def on_message(message):
             await message.add_reaction(emoji_reactions[key])
 
     # Special cases
-    if ("help" in words or "helpen" in words) and "?" in message.content:
+    if ("help" in words or "helpen" in words or "fix" in message.content) and "?" in message.content:
         await message.reply("Have you tried turning it off and on again?")
-    if pattern := re.search("[iI]k ben (.*)", message.content):
+    if pattern := re.match("[iI]k ben (.*)", message.content):
         await message.reply(f"Hey {pattern.group(1)}, ik ben Bollekebot!")
+    if "69" in words:
+        await message.add_reaction("🇳")
+        await message.add_reaction("🇮")
+        await message.add_reaction("🇨")
+        await message.add_reaction("🇪")
+    if message.author.display_name == "Alexander":
+        if random() < 0.1:
+            await message.add_reaction("🥴")
 
 
 client.run(TOKEN)
