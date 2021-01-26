@@ -10,10 +10,12 @@ responses = {"slapen": "Slaapwel!",
              "slok of gene slok": "WINOK",
              "water": "WATER?! Wil je me soms vergiftigen ofzo?",
              "anne-marie": "*Anne Marie",
+             "i'm blue": "Da ba dee da ba da"
              }
 # Multiple keys with same value
 responses.update(dict.fromkeys(
-    ['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken', 'eeten', 'ete'],
+    ['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken', 'eeten',
+     'ete', 'etenstijd', 'food', 'lunchables', 'ontbijten'],
     "Smakelijk!"))
 responses.update(dict.fromkeys(['vos', 'fox'], "Ring-ding-ding-ding-dingeringeding!"))
 responses.update(dict.fromkeys(['aescu', 'aesculapia'], "ieuw"))
@@ -33,8 +35,20 @@ emojis = {"p leave": "👋",
           "dorien": "🍻",
           "gitte": "💜",
           "alexander": "🥴",
-          "f": "🇫",
-          "nice": "♋"
+          "f": "f",
+          "nice": "♋",
+          "69": "nice",
+          "windows": "🪟💩",
+          "linux": "🐧",
+          "repost": "😱",
+          "ping": "pong",
+          "sleepy": "😴",
+          "mila": "😻",
+          "lies": "🐱",
+          "¯\_(ツ)_/¯": "🤗",
+          "zevensprong": "🐻🍺",
+          "studenten": "🥣",
+          "hanne": "😄"
           }
 
 emojis.update(dict.fromkeys(['bad bot', 'kutbot'], "😠"))

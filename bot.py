@@ -2,9 +2,17 @@ import re
 import discord
 from random import random, randint
 from config import emojis, responses
+import string
+import sys
 
 TOKEN = "ENTER YOUR DISCORD TOKEN HERE"
 client = discord.Client()
+
+# String.fromCodePoint("R".codePointAt(0) - 65 + 0x1f1e6) kon ook
+letter_emojis = {"a": "🇦🅰🔼👖🙈🩳🦑", "b": "🇧🅱️", "c": "🇨◀️", "d": "🇩▶👂🦻", "e": "🇪💶🟦🎼📧", "f": "🇫🤏", "g": "🇬",
+                 "h": "🇭", "i": "🇮ℹ❕️❗", "j": "🇯☂️", "k": "🇰◀️🎋", "l": "🇱🦾💪📃", "m": "🇲📧👑", "n": "🇳🟦📰",
+                 "o": "🇴🅾️⭕🟠", "p": "🇵", "q": "🇶", "r": "🇷🎗🎋", "s": "🇸🪱", "t": "🇹✝️", "u": "🇺👅",
+                 "v": "🇻🔽🔻🥇🥈🥉", "w": "🇼🗑️", "x": "🇽", "y": "🇾", "z": "🇿"}
 
 
 def split_words_phrases(dictionary):
@@ -23,20 +31,27 @@ emoji_reactions, emoji_reactions_phrases = split_words_phrases(emojis)
 
 
 async def add_reactions(message, reactions):
+    alphabet = dict.fromkeys(string.ascii_lowercase, 0)
     for reaction in reactions:
         try:
-            await message.add_reaction(reaction)
+            if reaction.isalpha():
+                reaction = letter_reaction(alphabet, reaction)
+            if reaction:
+                await message.add_reaction(reaction)
         except discord.errors.HTTPException:
             print(f"Unknown emoji {reaction}")
 
 
-@client.event
-async def on_ready():
-    print(f'Active on: ')
-    for guild in client.guilds:
-        print(f'- {guild.name}')
-    await client.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.watching, name="Mateo climb up the leaderboard"))
+def letter_reaction(alphabet, letter):
+    letter = letter.lower()
+    letter_occurances = alphabet[letter]
+    possible_letters = letter_emojis[letter]
+    if len(possible_letters) > letter_occurances:
+        letter_emoji = possible_letters[letter_occurances]
+    else:
+        return None
+    alphabet[letter] += 1
+    return letter_emoji
 
 
 def multi_replace(string, replace):
@@ -50,46 +65,25 @@ def is_me(user):
 
 
 def should_react(message):
-    return not (message.channel.name != "pomodoro" or
-                (is_me(message.author) and message.guild.name != "Bot Tests" and not "x" in message.content) or
-                message.author == client.user)
-
-
-@client.event
-async def on_message(message):
-    # Whoever you are, wherever you are, never say WINAK with lowercase letters
-    if "winak" in message.content:
-        await message.reply("*WINAK")
-
-    if is_me(message.author):
-        await check_manual_commands(message)
-
     # Don't react to my own messages (except in my own bot test channel), only react to messages in the Pomodoro channel
     # and don't react to messages from this bot
-    if not should_react(message):
-        return
-
-    if message.author.bot:
-        return await bot_only_reactions(message)
-
-    # Get the lowercase message without special symbol
-    lower_message = multi_replace(message.content.lower(), ",!?.*")
-    # Get the words (split the spaces), a set is faster to search in
-    words = set(lower_message.split())
-
-    await react_configured_cases(lower_message, message, words)
-
-    # Special cases
-    await react_special_cases(lower_message, message, words)
+    # message.channel.name != "pomodoro" or
+    return message.author != client.user
 
 
 async def check_manual_commands(message):
     if pattern := re.match("-say (.*)", message.content):
+        print(f"{message.author.display_name}: {message.content}")
         await message.delete()
         await message.channel.send(pattern.group(1))
-    if pattern := re.match("-react (.*)", message.content):
-        await message.delete()
-        await add_reactions(message.reference.resolved, pattern.group(1).replace(' ', ''))
+    elif pattern := re.match("-run (.*)", message.content):
+        # Warning: Dangerous code, anyone satisfying is_me can run any python code (TODO)
+        print(f"{message.author.display_name}: {message.content}")
+        exec(pattern.group(1))
+        await message.reply("Done")
+    elif message.content == "-flush":
+        sys.stdout.flush()
+        await message.add_reaction("👌")
     return
 
 
@@ -125,17 +119,60 @@ async def react_special_cases(lower_message, message, words):
         await message.reply(f"Hey {pattern.group(1)}, ik ben Bollekebot!")
     if message.author.display_name == "Alexander" and random() < 0.1:
         await message.add_reaction("🥴")
-    if "69" in message.content and not message.author.bot:
-        await add_reactions(message, "🇳🇮🇨🇪")
-    if "mateo" in lower_message and message.guild.name == "WINAK" and not message.author.bot:
+    if "mateo" in lower_message and message.guild.name == "WINAK":
         await message.add_reaction(discord.utils.get(message.guild.emojis, name="mateo"))
-    if "adios" in lower_message and message.guild.name == "WINAK" and not message.author.bot:
+    if "lmao" in words or "lmfao" in words and message.guild.name == "WINAK":
+        await message.add_reaction(discord.utils.get(message.guild.emojis, name="lmfao"))
+    if "adios" in lower_message and message.guild.name == "WINAK":
         await message.add_reaction(discord.utils.get(message.guild.emojis, name="zateo"))
     if "punten" in lower_message:
         await message.reply(f"Je hebt {randint(0, 20)}/20")
     if "haha" in lower_message:
         await message.add_reaction("😆")
+    if message.content == "420":
+        await message.reply(f"NEE IK HEB NOGSTEEDS NIET VOOR 420 ERIN GEZET, HOE VAAK GA JE DA NOG PROBEREN {message.author.display_name.upper()}?!")
+    if message.content == "-alphabet":
+        reaction = ""
+        for letter in letter_emojis:
+            reaction += f"{letter_emojis[letter]}\n"
+        await message.reply(reaction)
 
+
+
+@client.event
+async def on_ready():
+    print(f'Active on: ')
+    for guild in client.guilds:
+        print(f'- {guild.name}')
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name="Mateo climb up the leaderboard"))
+
+@client.event
+async def on_message(message):
+    # print(message.content)
+    # Whoever you are, wherever you are, never say WINAK with lowercase letters
+    if "winak" in message.content:
+        await message.reply("*WINAK")
+    if pattern := re.match("-react (.*)", message.content):
+        print(f"{message.author.display_name}: {message.content}")
+        await message.delete()
+        await add_reactions(message.reference.resolved, pattern.group(1).replace(' ', ''))
+    if is_me(message.author):
+        await check_manual_commands(message)
+
+    if not should_react(message):
+        return
+
+    if message.author.bot:
+        return await bot_only_reactions(message)
+
+    # Get the lowercase message without special symbol
+    lower_message = multi_replace(message.content.lower(), ",!?.*")
+    # Get the words (split the spaces), a set is faster to search in
+    words = set(lower_message.split())
+
+    await react_configured_cases(lower_message, message, words)
+    await react_special_cases(lower_message, message, words)
 
 @client.event
 async def on_reaction_add(reaction, user):
