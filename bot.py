@@ -9,9 +9,9 @@ TOKEN = "ENTER YOUR DISCORD TOKEN HERE"
 client = discord.Client()
 
 # String.fromCodePoint("R".codePointAt(0) - 65 + 0x1f1e6) kon ook
-letter_emojis = {"a": "🇦🅰🔼👖🙈🩳🦑", "b": "🇧🅱️", "c": "🇨◀️", "d": "🇩▶👂🦻", "e": "🇪💶🟦🎼📧", "f": "🇫🤏", "g": "🇬",
-                 "h": "🇭", "i": "🇮ℹ❕️❗", "j": "🇯☂️", "k": "🇰◀️🎋", "l": "🇱🦾💪📃", "m": "🇲📧👑", "n": "🇳🟦📰",
-                 "o": "🇴🅾️⭕🟠", "p": "🇵", "q": "🇶", "r": "🇷🎗🎋", "s": "🇸🪱", "t": "🇹✝️", "u": "🇺👅",
+letter_emojis = {"a": "🇦🅰🔼👖🙈🩳🦑", "b": "🇧🅱️", "c": "🇨◀️", "d": "🇩▶👂🦻", "e": "🇪💶🎼📧🟦", "f": "🇫🤏", "g": "🇬",
+                 "h": "🇭🦕", "i": "🇮ℹ❕️❗", "j": "🇯☂️", "k": "🇰◀️🎋", "l": "🇱🦾💪📃", "m": "🇲📧👑", "n": "🇳🟦📰",
+                 "o": "🇴🅾⭕🟠", "p": "🇵", "q": "🇶", "r": "🇷🎗🎋", "s": "🇸🪱", "t": "🇹✝️", "u": "🇺👅",
                  "v": "🇻🔽🔻🥇🥈🥉", "w": "🇼🗑️", "x": "🇽", "y": "🇾", "z": "🇿"}
 
 
@@ -90,6 +90,10 @@ async def check_manual_commands(message):
 async def bot_only_reactions(message):
     if "you have been unsubscribed due to inactivity!" in message.content:
         await message.add_reaction("😢")
+    if "you will be unsubscribed on the next stage if you do not reply or react to this message." in message.content:
+        for user in message.mentions:
+            if user.display_name == "Lies":
+                await add_reactions(message, "lies")
     return
 
 
@@ -115,7 +119,7 @@ async def react_configured_cases(lower_message, message, words):
 async def react_special_cases(lower_message, message, words):
     if ("help" in words or "helpen" in words or "fix" in message.content) and "?" in message.content:
         await message.reply("Have you tried turning it off and on again?")
-    if pattern := re.match("[iI]k ben (.*)", message.content):
+    if pattern := re.match("[iI]?k[ ]?ben (.*)", message.content):
         await message.reply(f"Hey {pattern.group(1)}, ik ben Bollekebot!")
     if message.author.display_name == "Alexander" and random() < 0.1:
         await message.add_reaction("🥴")
@@ -123,19 +127,28 @@ async def react_special_cases(lower_message, message, words):
         await message.add_reaction(discord.utils.get(message.guild.emojis, name="mateo"))
     if "lmao" in words or "lmfao" in words and message.guild.name == "WINAK":
         await message.add_reaction(discord.utils.get(message.guild.emojis, name="lmfao"))
-    if "adios" in lower_message and message.guild.name == "WINAK":
+    if ("adios" in words or "zateo" in words) and message.guild.name == "WINAK":
         await message.add_reaction(discord.utils.get(message.guild.emojis, name="zateo"))
     if "punten" in lower_message:
         await message.reply(f"Je hebt {randint(0, 20)}/20")
     if "haha" in lower_message:
         await message.add_reaction("😆")
     if message.content == "420":
-        await message.reply(f"NEE IK HEB NOGSTEEDS NIET VOOR 420 ERIN GEZET, HOE VAAK GA JE DA NOG PROBEREN {message.author.display_name.upper()}?!")
+        await message.reply(f"NEE IK HEB NOGSTEEDS NIETS VOOR 420 ERIN GEZET, HOE VAAK GA JE DA NOG PROBEREN {message.author.display_name.upper()}?!")
     if message.content == "-alphabet":
         reaction = ""
         for letter in letter_emojis:
             reaction += f"{letter_emojis[letter]}\n"
         await message.reply(reaction)
+    if "mai pii" in lower_message:
+        await message.add_reaction("🇻🇳")
+    if "coronatest" in words or ("corona" in words and "test" in words):
+        if random() > 0.5:
+            result = "NEGATIEF"
+        else:
+            result = "POSITIEF"
+        await message.reply(result)
+
 
 
 

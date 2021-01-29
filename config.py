@@ -48,10 +48,12 @@ emojis = {"p leave": "👋",
           "¯\_(ツ)_/¯": "🤗",
           "zevensprong": "🐻🍺",
           "studenten": "🥣",
-          "hanne": "😄"
+          "hanne": "😄",
+          "tim": "🚆",
+          "tjenne": "🪴"
           }
 
-emojis.update(dict.fromkeys(['bad bot', 'kutbot'], "😠"))
+emojis.update(dict.fromkeys(['bad bot', 'kutbot', 'stoeme bot', 'stomme bot'], "😠"))
 emojis.update(dict.fromkeys(['pussy', '50 shades'], "😏"))
 emojis.update(dict.fromkeys(['birthday', "verjaardag"], "🥳"))
 emojis.update(dict.fromkeys(['love', 'liefde', 'hou van'], "😍"))
