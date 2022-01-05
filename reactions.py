@@ -67,7 +67,7 @@ async def react_special_cases(lower_message, message, words):
     Reactions not defined in the config
     TODO: Some of those can be removed if I let users specify a chance in the config or a reaction function
     """
-    if ("motivatie" in words or "depressief" in words) or message.content in ["!ikwilwenen", "!ikziehetnietmeerzitten",
+    if ("motivati" in lower_message or "depressi" in lower_message) or message.content in ["!ikwilwenen", "!ikziehetnietmeerzitten",
                                                                               "!fokdeblok", "!ikkanhetnimeeraan",
                                                                               "!mijnburenzijnaanhetborenindegemeenschappelijkemuur",
                                                                               "!concentratieop"]:
