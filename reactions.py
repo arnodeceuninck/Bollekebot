@@ -1,11 +1,12 @@
 import sys
 import re
-from random import random, randint
+from random import random, randint, choice
 
 from config import *
 from util import get_motivational_quote, add_reactions, split_words_phrases
 
 import discord
+
 
 async def check_manual_commands(message):
     """"
@@ -67,13 +68,21 @@ async def react_special_cases(lower_message, message, words):
     Reactions not defined in the config
     TODO: Some of those can be removed if I let users specify a chance in the config or a reaction function
     """
-    if ("motivati" in lower_message or "depressi" in lower_message) or message.content in ["!ikwilwenen", "!ikziehetnietmeerzitten",
-                                                                              "!fokdeblok", "!ikkanhetnimeeraan",
-                                                                              "!mijnburenzijnaanhetborenindegemeenschappelijkemuur",
-                                                                              "!concentratieop"]:
+    if ("motivati" in lower_message or "depressi" in lower_message) or message.content in ["!ikwilwenen",
+                                                                                           "!ikziehetnietmeerzitten",
+                                                                                           "!fokdeblok",
+                                                                                           "!ikkanhetnimeeraan",
+                                                                                           "!mijnburenzijnaanhetborenindegemeenschappelijkemuur",
+                                                                                           "!concentratieop"]:
         if message.content == "!ikwilwenen" and random() < 1:
-            await message.reply(
-                "Das oke, iedereen moet soms z'n gevoelens uiten, je geraakt wel door deze examenperiode, YOU CAN DO THIS!")
+            answers = ['!ikook',
+                       "Das oke, iedereen moet soms z'n gevoelens uiten, je geraakt wel door deze examenperiode, YOU CAN DO THIS!",
+                       "Je gaat de examens knallen!",
+                       "https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449",
+                       "Je bent ni alleen, we zitten allemaal samen in de Discord om er samen door te geraken!",
+                       "Da komt allemaal wel goed!", "Zou je je niet vervelen met 3 maanden vakantie?",
+                       "YES WE CAN! Probeer da luidop te zeggen, da geeft echt extra motivatie #marathonradio"]
+            await message.reply(choice(answers))
         await message.reply(get_motivational_quote())
     if message.content == "Catoe moet pottoe!":
         await message.reply("factsssssssss")
@@ -116,6 +125,7 @@ async def react_special_cases(lower_message, message, words):
         await add_reactions(message.reference.resolved, pattern.group(1).replace(' ', ''))
     if "boommarter" in words:
         await message.reply(file=discord.File('boommarter.png'))
+
 
 # Preprocess the words and phrases
 word_responses, phrase_responses = split_words_phrases(responses)
