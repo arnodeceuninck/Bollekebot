@@ -2,7 +2,7 @@ import discord
 from answer_config import answers
 from message import Message
 from util import get_motivational_quote
-from discord_util import get_message
+from discord_util import get_message, get_my_user_id
 from config import TOKEN
 
 client = discord.Client()
@@ -36,7 +36,7 @@ async def on_reaction_add(reaction, user):
 
 @client.event
 async def on_raw_reaction_add(reaction):
-    if reaction.emoji.name == '🚣‍♂️' and reaction.member.display_name == 'Arno Deceuninck':  # emoji is man rowing boat
+    if reaction.emoji.name == '🚣‍♂️' and reaction.user_id == get_my_user_id():  # emoji is man rowing boat
         await get_message(reaction.channel_id, reaction.message_id, client).reply(get_motivational_quote())
 
 

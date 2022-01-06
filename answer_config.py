@@ -29,7 +29,7 @@ answers = [ReplyAnswer(get_motivational_quote,
 
            ReplyAnswer(
                lambda m: f"Hey {re.match('[iI]?k[ ]?ben (.*)', m.get_exact_content()).group(1)}, ik ben Bollekebot!",
-               regex_trigger="[iI]?k[ ]?ben (.*)"),
+               regex_trigger="[iI]?k[ ]?ben (.*)", prob=0.2),
 
            ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)"),
 
@@ -45,7 +45,7 @@ answers = [ReplyAnswer(get_motivational_quote,
                                                 and m.contains_substring("?", match_case=True)),
 
            ReactAnswer("🥴", active_users="Alexander", prob=0.1),
-           ReplyAnswer(lambda m: f"Je hebt {randint(0, 20)}/20", words_trigger="punten"),
+           ReplyAnswer(lambda m: f"Je hebt {randint(0, 20)}/20", words_trigger="punten", prob=0.3),
            ReplyAnswer(lambda m: get_alphabet_str(), exact_trigger="-alphabet"),
 
            ReplyAnswer(lambda m: "NEGATIEF" if random() > 0.5 else "POSITIEF",

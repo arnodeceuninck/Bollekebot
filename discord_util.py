@@ -37,3 +37,6 @@ def get_winak_emoji(client):
     emoji = winak_guild.emojis[3]
     assert emoji.name == 'WINAK'
     return emoji
+
+def get_my_user_id():
+    return 224550208053313536
