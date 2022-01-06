@@ -7,7 +7,7 @@ from random import choice, randint, random
 from react_config import react_answers
 from reply_config import reply_answers
 
-answers = [ReplyAnswer(get_motivational_quote,
+answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                        substrings_trigger=["depressi", "motivati"],
                        words_trigger=["dieptepunt"],
                        exact_trigger=["!ikwilwenen", "!ikziehetnietmeerzitten", "!fokdeblok",
