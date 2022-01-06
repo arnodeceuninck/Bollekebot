@@ -1,11 +1,12 @@
 import discord
-from config import emojis, responses
-from reactions import react_special_cases, react_configured_cases, bot_only_reactions, check_manual_commands
-from util import split_words_phrases, multi_replace
-from client import client
-from util import get_motivational_quote, react_winak_emoji, is_me
+from answer_config import answers
+from message import Message
+from util import get_motivational_quote
+from discord_util import get_message
+from config import TOKEN
 
-TOKEN = "ENTER YOUR DISCORD TOKEN HERE"
+client = discord.Client()
+
 
 @client.event
 async def on_ready():
@@ -21,17 +22,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    # Get the lowercase message without special symbol
-    lower_message = multi_replace(message.content.lower(), ",!?.*")
-    # Get the words (split the spaces), a set is faster to search in
-    words = set(lower_message.split())
-
-    if is_me(message.author):
-        await check_manual_commands(message)
-    if message.author.bot:
-        return await bot_only_reactions(message)
-    await react_configured_cases(lower_message, message, words)
-    await react_special_cases(lower_message, message, words)
+    message = Message(message)
+    for answer in answers:
+        await answer.answer_message(message, client)
 
 
 @client.event
@@ -43,14 +36,8 @@ async def on_reaction_add(reaction, user):
 
 @client.event
 async def on_raw_reaction_add(reaction):
-    if reaction.emoji.name == 'Fabiant':
-        await react_winak_emoji(reaction.channel_id, reaction.message_id)
-    print(reaction.emoji.name, reaction.member.display_name)
     if reaction.emoji.name == '🚣‍♂️' and reaction.member.display_name == 'Arno Deceuninck':  # emoji is man rowing boat
-        channel = client.get_channel(reaction.channel_id)
-        message = channel.get_partial_message(reaction.message_id)
-        await message.reply(get_motivational_quote())
+        await get_message(reaction.channel_id, reaction.message_id, client).reply(get_motivational_quote())
 
 
 client.run(TOKEN)
-
