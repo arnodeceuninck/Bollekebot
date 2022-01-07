@@ -6,7 +6,7 @@ import discord
 
 
 class ReactAnswer(Answer):
-    def __init__(self, reaction, on_replied=True, **kwargs):
+    def __init__(self, reaction, on_replied=False, **kwargs):
         super().__init__(**kwargs)
 
         self.reactions = reaction  # Warning: This is a string and not a list
