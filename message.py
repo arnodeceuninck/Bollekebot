@@ -1,4 +1,5 @@
 from util import multi_char_remove
+import discord
 
 
 class Message:
@@ -70,3 +71,6 @@ class Message:
 
     def delete(self):
         return self.get_discord_message().delete()
+
+    def is_dm(self):
+        return self.get_discord_message().channel.type == discord.ChannelType.private

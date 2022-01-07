@@ -4,8 +4,10 @@ from util import to_list, split_words_phrases
 
 
 class Answer:
-    def __init__(self, prob=1.0, words_substr_triggers=None, words_trigger=None, exact_trigger=None, substrings_trigger=None, custom_trigger=None,
-                 bot_only=False, active_guild=None, active_channel=None, active_users=None, regex_trigger=None, delete_message=False, log=False):
+    def __init__(self, prob=1.0, words_substr_triggers=None, words_trigger=None, exact_trigger=None,
+                 substrings_trigger=None, custom_trigger=None,
+                 bot_only=False, active_guild=None, active_channel=None, active_users=None, regex_trigger=None,
+                 delete_message=False, log=False):
         if words_trigger is None:
             words_trigger = []
         if exact_trigger is None:
@@ -36,8 +38,8 @@ class Answer:
         self.substrings_trigger = substrings_trigger
         self.custom_trigger = custom_trigger
         self.bot_only = bot_only  # If False, won't react to bots, if True will react only to bots
-        self.active_guilds = active_guild # List of guild name in which it can get triggered
-        self.active_channels = active_channel # List of channel ids in which it can get triggered
+        self.active_guilds = active_guild  # List of guild name in which it can get triggered
+        self.active_channels = active_channel  # List of channel ids in which it can get triggered
         self.active_users = active_users
         self.regex_trigger = regex_trigger
         self.delete_message = delete_message
@@ -84,15 +86,13 @@ class Answer:
 
     async def answer_message(self, message, client):
         if self.should_answer(message):
-            if self.log:
+            if self.log or self.delete_message:
                 message.log()
 
             if self.delete_message:
                 await message.delete()
 
             await self.send_answer(message, client)
-
-
 
     async def send_answer(self, message, client):
         raise Exception("Method not implemented")

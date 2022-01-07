@@ -23,6 +23,10 @@ async def on_ready():
 @client.event
 async def on_message(message):
     message = Message(message)
+
+    if message.is_dm():
+        message.log()
+
     for answer in answers:
         await answer.answer_message(message, client)
 
