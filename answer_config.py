@@ -1,7 +1,9 @@
 import re
+import sys
 
 from reply_answer import ReplyAnswer
 from react_answer import ReactAnswer
+from function_answer import FunctionAnswer
 from util import get_motivational_quote, get_alphabet_str
 from random import choice, randint, random
 from react_config import react_answers
@@ -52,7 +54,8 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                        custom_trigger=lambda m: m.contains_word("coronatest") or (
                                m.contains_word("corona") and m.contains_word("test"))),
            ReplyAnswer("*WINAK", words_trigger=["winak", "Winak"]),
-           ReplyAnswer("", image="boommarter.png", words_trigger="boommarter")
+           ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
+           FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
            ]
 
 answers += react_answers

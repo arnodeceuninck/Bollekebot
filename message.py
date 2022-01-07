@@ -42,7 +42,7 @@ class Message:
     def get_reference_discord_message(self):
         return self.get_discord_message().reference.resolved
 
-    def react(self, reaction, on_replied):
+    def react(self, reaction, on_replied=False):
         if not on_replied:
             discord_message = self.get_discord_message()
         else:
