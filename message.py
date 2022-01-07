@@ -38,8 +38,16 @@ class Message:
     def get_discord_message(self):
         return self.discord_message
 
-    def react(self, reaction):
-        return self.get_discord_message().add_reaction(reaction)
+    def get_reference_discord_message(self):
+        return self.get_discord_message().reference.resolved
+
+    def react(self, reaction, on_replied):
+        if not on_replied:
+            discord_message = self.get_discord_message()
+        else:
+            discord_message = self.get_reference_discord_message()
+
+        return discord_message.add_reaction(reaction)
 
     def from_bot(self):
         return self.get_author().bot
@@ -59,3 +67,6 @@ class Message:
 
     def get_user_name(self):
         return self.get_author().display_name
+
+    def delete(self):
+        return self.get_discord_message().delete()

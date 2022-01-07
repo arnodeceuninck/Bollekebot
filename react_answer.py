@@ -6,10 +6,11 @@ import discord
 
 
 class ReactAnswer(Answer):
-    def __init__(self, reaction, **kwargs):
+    def __init__(self, reaction, on_replied=True, **kwargs):
         super().__init__(**kwargs)
 
         self.reactions = reaction  # Warning: This is a string and not a list
+        self.on_replied = on_replied
 
     async def send_answer(self, message, client):
         alphabet = dict.fromkeys(string.ascii_lowercase, 0)
@@ -23,7 +24,7 @@ class ReactAnswer(Answer):
                 if reaction.isalpha():
                     reaction = letter_reaction(alphabet, reaction, client)
                 if reaction:
-                    await message.react(reaction)
+                    await message.react(reaction, on_replied=self.on_replied)
             except discord.errors.HTTPException:
                 # print(f"Unknown emoji {reaction}")
                 pass

@@ -25,13 +25,13 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                          "YES WE CAN! Probeer da luidop te zeggen, da geeft echt extra motivatie #marathonradio"]),
                        exact_trigger=["!ikwilwenen"]),
 
-           ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)"),
+           ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)", as_reply=False, delete_message=True),
 
            ReplyAnswer(
                lambda m: f"Hey {re.match('[iI]?k[ ]?ben (.*)', m.get_exact_content()).group(1)}, ik ben Bollekebot!",
                regex_trigger="[iI]?k[ ]?ben (.*)", prob=0.2),
 
-           ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)"),
+           ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)", on_replied=True, delete_message=True),
 
            ReactAnswer("fact", exact_trigger="Catoe moet pottoe!", bot_only=True),
            ReactAnswer("😢", substrings_trigger="you have been unsubscribed due to inactivity!", bot_only=True),

@@ -84,13 +84,15 @@ class Answer:
 
     async def answer_message(self, message, client):
         if self.should_answer(message):
-            await self.send_answer(message, client)
-
             if self.log:
                 message.log()
 
             if self.delete_message:
                 await message.delete()
+
+            await self.send_answer(message, client)
+
+
 
     async def send_answer(self, message, client):
         raise Exception("Method not implemented")
