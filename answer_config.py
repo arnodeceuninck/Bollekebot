@@ -31,7 +31,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
 
            ReplyAnswer(
                lambda m: f"Hey {re.match('[iI]?k[ ]?ben (.*)', m.get_exact_content()).group(1)}, ik ben Bollekebot!",
-               regex_trigger="[iI]?k[ ]?ben (.*)", prob=0.2),
+               regex_trigger="[iI]?k[ ]?ben (.*)", prob=0.05),
 
            ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)", on_replied=True, delete_message=True, log=True),
 
@@ -44,7 +44,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
 
            ReplyAnswer("Have you tried turning it off and on again?",
                        custom_trigger=lambda m: (m.contains_substring("help") or m.contains_substring("fix"))
-                                                and m.contains_substring("?", match_case=True)),
+                                                and m.contains_substring("?", match_case=True), prob=0.4),
 
            ReactAnswer("🥴", active_users="Alexander", prob=0.1),
            ReplyAnswer(lambda m: f"Je hebt {randint(0, 20)}/20", words_trigger="punten", prob=0.3),

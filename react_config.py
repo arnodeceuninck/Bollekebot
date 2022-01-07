@@ -4,26 +4,21 @@ always_react = [("p leave", "👋"),
                 ("good bot", "😘"),
                 ("tea", "🍵"),
                 ("cupcake", "🧁"),
-                ("lockdown", "🔒⬇"),
                 ("se", "🤮"),
                 ("bollekebot", "👀"),
                 ("bolleke", "🟠"),
-                ("sad", "😢"),
                 ("cara", "🍻"),
                 ("anne marie", "❤"),
                 ("dorien", "🍻"),
                 ("gitte", "💜"),
                 ("alexander", "🥴"),
                 ("f", "f"),
-                ("windows", "🪟💩"),
-                ("linux", "🐧"),
                 ("repost", "😱"),
                 ("ping", "pong"),
                 ("sleepy", "😴"),
                 ("mila", "😻"),
                 ("lies", "🐱"),
                 ("¯\_(ツ)_/¯", "🤗"),
-                ("zevensprong", "🐻🍺"),
                 ("hanne", "😄"),
                 ("tim", "🚆"),
                 ("tjenne", "🪴"),
@@ -37,10 +32,15 @@ always_react = [("p leave", "👋"),
 
 sometimes_react = [(["succes", "success"], "❤"),
                    ("studenten", "🥣"),
-                   ("69", "nice"),]
+                   ("69", "nice"),
+                   ("lockdown", "🔒⬇"),
+                   ("sad", "😢"),
+                   ("windows", "🪟💩"),
+                   ("linux", "🐧"), ]
 
 rare_react = [("nice", "♋"),
-              (['corona', 'covid'], "🤧"), ]
+              (['corona', 'covid'], "🤧"),
+              ("zevensprong", "🐻🍺"), ]
 
 react_answers = []
 
