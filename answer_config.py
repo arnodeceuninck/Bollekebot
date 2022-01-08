@@ -27,13 +27,15 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                          "YES WE CAN! Probeer da luidop te zeggen, da geeft echt extra motivatie #marathonradio"]),
                        exact_trigger=["!ikwilwenen"]),
 
-           ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)", as_reply=False, delete_message=True, log=True),
+           ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)",
+                       as_reply=False, delete_message=True, log=True),
 
            ReplyAnswer(
                lambda m: f"Hey {re.match('[iI]?k[ ]?ben (.*)', m.get_exact_content()).group(1)}, ik ben Bollekebot!",
                regex_trigger="[iI]?k[ ]?ben (.*)", prob=0.05),
 
-           ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)", on_replied=True, delete_message=True, log=True),
+           ReactAnswer(lambda m: re.match("-react (.*)", m.get_exact_content()).group(1), regex_trigger="-react (.*)",
+                       on_replied=True, delete_message=True, log=True),
 
            ReactAnswer("fact", exact_trigger="Catoe moet pottoe!", bot_only=True),
            ReactAnswer("😢", substrings_trigger="you have been unsubscribed due to inactivity!", bot_only=True),
@@ -53,7 +55,9 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer(lambda m: "NEGATIEF" if random() > 0.5 else "POSITIEF",
                        custom_trigger=lambda m: m.contains_word("coronatest") or (
                                m.contains_word("corona") and m.contains_word("test"))),
-           ReplyAnswer("*WINAK", words_trigger=["winak", "Winak"]),
+           ReplyAnswer("*WINAK",
+                       custom_trigger=lambda m: m.contains_substring("winak", match_case=True) or m.contains_substring(
+                           "Winak", match_case=True)),
            ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
            FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
            ]
