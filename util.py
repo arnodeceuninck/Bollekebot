@@ -1,5 +1,5 @@
 from random import random, choice
-from config import quotes, letter_emojis
+from config import quotes, letter_emojis, motivation
 
 
 def multi_char_remove(string, chars_to_remove):
@@ -28,10 +28,8 @@ def get_motivational_quote():
     """
     :return: A random quote from the quotes list or a cute gif
     """
-    if random() < 0.1:
-        return choice(["https://tenor.com/view/motivation-motivational-penguin-gif-14021416",
-                      "https://tenor.com/view/cat-kitten-motivational-cat-motivational-kitty-you-can-doit-gif-4498499",
-                      "https://tenor.com/view/polar-bear-cute-ice-bear-gif-19566864"])
+    if random() < 0.5:
+        return choice(motivation)
     else:
         return choice(quotes)
 

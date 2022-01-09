@@ -19,12 +19,8 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
 
            ReplyAnswer(lambda m: choice(['!ikook',
                                          "Das oke, iedereen moet soms z'n gevoelens uiten, je geraakt wel door deze examenperiode, YOU CAN DO THIS!",
-                                         "Je gaat de examens knallen!",
                                          "https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449",
-                                         "Je bent ni alleen, we zitten allemaal samen in de Discord om er samen door te geraken!",
-                                         "Da komt allemaal wel goed!",
-                                         "Zou je je niet vervelen met 3 maanden vakantie?",
-                                         "YES WE CAN! Probeer da luidop te zeggen, da geeft echt extra motivatie #marathonradio"]),
+                                        ]),
                        exact_trigger=["!ikwilwenen"]),
 
            ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)",

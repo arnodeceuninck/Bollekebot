@@ -10,3 +10,7 @@ letter_emojis = {"a": "🇦🅰🔼👖🙈🩳🦑", "b": "🇧🅱️", "c": "
 # A list containing motivational quotes
 with open("quotes.txt") as f:
     quotes = f.read().splitlines()
+
+# A list containing motivational quotes
+with open("motivation.txt") as f:
+    motivation = f.read().splitlines()

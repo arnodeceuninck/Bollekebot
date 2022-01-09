@@ -13,7 +13,7 @@ class Message:
 
     def get_lower_message(self):
         if self.lower_message is None:
-            self.lower_message = multi_char_remove(self.get_exact_content().lower(), ",!?.*")
+            self.lower_message = multi_char_remove(self.get_exact_content().lower(), ",!?.*\"'")
         return self.lower_message
 
     def get_word_list(self):
