@@ -20,4 +20,4 @@ Note: Be careful with imports.
 
 ## Sources
 - Old Quotes: https://www.oberlo.com/blog/motivational-quotes
-- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes
+- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family
