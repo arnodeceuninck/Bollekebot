@@ -38,5 +38,12 @@ def get_winak_emoji(client):
     assert emoji.name == 'WINAK'
     return emoji
 
+
 def get_my_user_id():
     return 224550208053313536
+
+
+async def message_myself(msg, client):
+    me = await client.fetch_user(get_my_user_id())
+    await client.wait_until_ready()
+    await me.send(msg)

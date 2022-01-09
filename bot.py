@@ -24,8 +24,11 @@ async def on_ready():
 async def on_message(message):
     message = Message(message)
 
+    if message.from_me(client):
+        return
+
     if message.is_dm():
-        message.log()
+        await message.log(client)
 
     for answer in answers:
         await answer.answer_message(message, client)

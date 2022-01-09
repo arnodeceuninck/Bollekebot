@@ -87,7 +87,7 @@ class Answer:
     async def answer_message(self, message, client):
         if self.should_answer(message):
             if self.log or self.delete_message:
-                message.log()
+                await message.log(client)
 
             if self.delete_message:
                 await message.delete()

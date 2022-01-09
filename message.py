@@ -1,3 +1,4 @@
+from discord_util import message_myself, get_my_user_id
 from util import multi_char_remove
 import discord
 
@@ -62,9 +63,13 @@ class Message:
     def get_author(self):
         return self.get_discord_message().author
 
-    def log(self):
+    async def log(self, client):
         user = self.get_author()
-        print(f"{user.display_name}({user.id}): {self.get_exact_content()}")
+        log_text = f"{user.display_name}({user.id}): {self.get_exact_content()}"
+        print(log_text)
+
+        if not self.from_me(client):
+            await message_myself(log_text, client)
 
     def get_user_name(self):
         return self.get_author().display_name
@@ -74,3 +79,9 @@ class Message:
 
     def is_dm(self):
         return self.get_discord_message().channel.type == discord.ChannelType.private
+
+    def from_me(self, client):
+        # Check whether it's from Bollekesbot
+        return self.get_author().id == client.user.id
+        # To check whether it's from myself (Arno)
+        # return self.get_author().id == get_my_user_id()
