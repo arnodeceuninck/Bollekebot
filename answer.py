@@ -46,8 +46,6 @@ class Answer:
         self.log = log
 
     def should_answer(self, message):
-        if not random() < self.prob:
-            return False
 
         if self.bot_only and not message.from_bot():
             return False
@@ -64,12 +62,15 @@ class Answer:
         if self.active_users is not None and message.get_user_name() not in self.active_users:
             return False
 
-        for word in self.words_trigger:
-            if message.contains_word(word):
-                return True
-
         for text in self.exact_trigger:
             if message.is_exact(text):
+                return True
+
+        if not random() < self.prob:
+            return False
+
+        for word in self.words_trigger:
+            if message.contains_word(word):
                 return True
 
         for substr in self.substrings_trigger:

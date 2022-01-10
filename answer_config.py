@@ -8,6 +8,7 @@ from util import get_motivational_quote, get_alphabet_str
 from random import choice, randint, random
 from react_config import react_answers
 from reply_config import reply_answers
+from config import cute_pictures
 
 answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                        substrings_trigger=["depressi", "motivati"],
@@ -56,6 +57,8 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                            "Winak", match_case=True)),
            ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
            FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
+
+           ReplyAnswer(lambda m: choice(cute_pictures), words_trigger=["panda", "cute"], exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5)
            ]
 
 answers += react_answers

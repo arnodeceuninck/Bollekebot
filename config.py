@@ -14,3 +14,7 @@ with open("quotes.txt") as f:
 # A list containing motivational quotes
 with open("motivation.txt") as f:
     motivation = f.read().splitlines()
+
+# A list containing motivational quotes
+with open("cute.txt", encoding="utf8") as f:
+    cute_pictures = f.read().splitlines()

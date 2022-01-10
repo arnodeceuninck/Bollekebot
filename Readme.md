@@ -18,6 +18,13 @@ Note: Be careful with imports.
 - Numbers in add_reactions
 - Automatic deployment on raspberry pi
 
+## More Bollekebot
+There are multiple instances of Bollekebot running. You might be looking for this code:
+- message-scheduler: Sadly I can't currently find this code. This schedules messages. 
+- [komida-registration-bot](https://github.com/arnodeceuninck/komida-registration-bot): Automatically does the registration at the Komida restaurants for you
+- [results-online-sisa](https://github.com/arnodeceuninck/results-online-sisa): Checks whether the results of the exams are online
+
 ## Sources
 - Old Quotes: https://www.oberlo.com/blog/motivational-quotes
 - New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family
+- Cute animals: https://www.pexels.com/search/cute%20animals/
