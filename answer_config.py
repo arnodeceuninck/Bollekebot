@@ -58,7 +58,9 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
            FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
 
-           ReplyAnswer(lambda m: choice(cute_pictures), words_trigger=["panda", "cute"], exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5)
+           ReplyAnswer(lambda m: choice(cute_pictures), words_trigger=["panda", "cute"], exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5),
+
+           ReplyAnswer("Hey dad, ik ben Bollekesbot!", bot_only=True, regex_trigger="Hello (.*), I'm dad")
            ]
 
 answers += react_answers
