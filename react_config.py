@@ -28,7 +28,8 @@ always_react = [("p leave", "👋"),
                 (['love', 'liefde', 'hou van'], "😍"),
                 (['dead', 'dood'], "🔫"),
                 (['king', 'mking', 'deceuninck', 'koning'], "👑"),
-                (['sneeuw', 'sneeuwman', 'sneeuwt', 'sneeuwen'], "☃")]
+                (['sneeuw', 'sneeuwman', 'sneeuwt', 'sneeuwen'], "☃"),
+                ('pauze', "⏸")]
 
 sometimes_react = [(["succes", "success"], "❤"),
                    ("studenten", "🥣"),

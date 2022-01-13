@@ -21,7 +21,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer(lambda m: choice(['!ikook',
                                          "Das oke, iedereen moet soms z'n gevoelens uiten, je geraakt wel door deze examenperiode, YOU CAN DO THIS!",
                                          "https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449",
-                                        ]),
+                                         ]),
                        exact_trigger=["!ikwilwenen"]),
 
            ReplyAnswer(lambda m: re.match("-say (.*)", m.get_exact_content()).group(1), regex_trigger="-say (.*)",
@@ -58,9 +58,15 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
            FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
 
-           ReplyAnswer(lambda m: choice(cute_pictures), words_trigger=["panda", "cute"], exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5),
+           ReplyAnswer(lambda m: choice(cute_pictures), words_trigger=["panda", "cute"],
+                       exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5),
 
-           ReplyAnswer("Hey dad, ik ben Bollekesbot!", bot_only=True, regex_trigger="Hello (.*), I'm dad")
+           ReplyAnswer("Hey dad, ik ben Bollekesbot!", bot_only=True, regex_trigger="Hello (.*), I'm dad", prob=0.2),
+
+           ReplyAnswer("Zoals een wijs man ooit zei: \"Als een pauze ni uitloopt, is het dan wel een pauze?\"",
+                       custom_trigger=lambda m: m.contains_substring("pauze") and
+                                                (m.contains_substring("lopen") or m.contains_substring("loop"))
+                                                and m.contains_substring("uit")),
            ]
 
 answers += react_answers
