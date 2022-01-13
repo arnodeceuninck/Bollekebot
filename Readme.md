@@ -10,6 +10,7 @@
 - [react_answer.py](react_answer.py): Class for a reaction on a message
 - [discord_util.py](discord_util.py): Contains some Discord related util functions
 - [util.py](util.py): Contains some util functions
+- [text_parser.py](text_parser.py): Extracts all specific regex matches from a file, e.g. for extracting quotes from a html page
 
 Note: Be careful with imports. 
 
@@ -26,5 +27,5 @@ There are multiple instances of Bollekebot running. You might be looking for thi
 
 ## Sources
 - Old Quotes: https://www.oberlo.com/blog/motivational-quotes
-- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family, https://blendtw.com/motivational-quotes-for-exams/
+- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family, https://blendtw.com/motivational-quotes-for-exams/, https://www.elle.be/nl/83935-20-motiverende-blokquotes.html
 - Cute animals: https://www.pexels.com/search/cute%20animals/
