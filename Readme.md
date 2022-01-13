@@ -27,5 +27,5 @@ There are multiple instances of Bollekebot running. You might be looking for thi
 
 ## Sources
 - Old Quotes: https://www.oberlo.com/blog/motivational-quotes
-- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family, https://blendtw.com/motivational-quotes-for-exams/, https://www.elle.be/nl/83935-20-motiverende-blokquotes.html, https://sowiso.nl/blog/20-quotes-voor-docenten-en-studenten/
+- New Quotes: https://examstudyexpert.com/study-motivation-quotes/, https://liamporritt.com/blog/100-inspirational-study-quotes, https://owlcation.com/academia/Good-luck-messages-for-exams-and-tests-All-the-best-wishes-for-friends-and-family, https://blendtw.com/motivational-quotes-for-exams/, https://www.elle.be/nl/83935-20-motiverende-blokquotes.html, https://sowiso.nl/blog/20-quotes-voor-docenten-en-studenten/, https://sillidria.wixsite.com/priscilla/single-post/2017/10/09/motivatie-quotes
 - Cute animals: https://www.pexels.com/search/cute%20animals/
