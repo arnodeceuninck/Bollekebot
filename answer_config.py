@@ -65,7 +65,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
 
            ReplyAnswer("Zoals een wijs man ooit zei: \"Als een pauze ni uitloopt, is het dan wel een pauze?\"",
                        custom_trigger=lambda m: m.contains_substring("pauze") and
-                                                (m.contains_substring("lopen") or m.contains_substring("loop"))
+                                                (m.contains_substring("lopen") or m.contains_substring("loop") or m.contains_substring("liep"))
                                                 and m.contains_substring("uit")),
            ]
 
