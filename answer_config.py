@@ -21,6 +21,11 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer(lambda m: choice(['!ikook',
                                          "Das oke, iedereen moet soms z'n gevoelens uiten, je geraakt wel door deze examenperiode, YOU CAN DO THIS!",
                                          "https://tenor.com/view/mochi-peachcat-mochi-peachcat-hug-pat-gif-19092449",
+                                         "https://discord.com/channels/@me/822251746448900137/932300948670398574",
+                                         "https://tenor.com/view/hugs-heart-love-sending-virtual-hug-gif-17607943",
+                                         "https://tenor.com/view/virtual-hug-penguin-love-heart-gif-14712845",
+                                         "https://tenor.com/view/milk-and-mocha-upset-dont-cry-im-here-gif-13765448",
+                                         "https://tenor.com/view/crying-thats-ok-dont-cry-gif-14087354"
                                          ]),
                        exact_trigger=["!ikwilwenen"]),
 
