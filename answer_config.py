@@ -72,6 +72,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                        custom_trigger=lambda m: m.contains_substring("pauze") and
                                                 (m.contains_substring("lopen") or m.contains_substring("loop") or m.contains_substring("liep"))
                                                 and m.contains_substring("uit")),
+           ReactAnswer("🤮", custom_trigger=lambda m: m.contains_word("SE", match_case=True)),
            ]
 
 answers += react_answers

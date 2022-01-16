@@ -8,22 +8,31 @@ class Message:
         self.discord_message = discord_message
         self.lower_message = None
         self.words = None
+        self.capitalized_words = None
 
     def get_exact_content(self) -> str:
         return self.discord_message.content
 
+    def get_alpha_only(self):
+        return multi_char_remove(self.get_exact_content(), ",!?.*\"'")
+
     def get_lower_message(self):
         if self.lower_message is None:
-            self.lower_message = multi_char_remove(self.get_exact_content().lower(), ",!?.*\"'")
+            self.lower_message = self.get_alpha_only().lower()
         return self.lower_message
 
-    def get_word_list(self):
-        if self.words is None:
-            self.words = set(self.get_lower_message().split())
-        return self.words
+    def get_word_list(self, capitalized):
+        if not capitalized:
+            if self.words is None:
+                self.words = set(self.get_lower_message().split())
+            return self.words
+        else:
+            if self.capitalized_words is None:
+                self.capitalized_words = set(self.get_alpha_only().split())
+            return self.capitalized_words
 
-    def contains_word(self, word):
-        return word in self.get_word_list()
+    def contains_word(self, word, match_case=False):
+        return word in self.get_word_list(capitalized=match_case)
 
     def contains_substring(self, substring, match_case=False):
         if match_case:
