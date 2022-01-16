@@ -14,9 +14,9 @@ sometimes_reply = [("kat", "Miauw"),
                    ("water", "WATER?! Wil je me soms vergiftigen ofzo?"),
                    (['vos', 'fox'], "Ring-ding-ding-ding-dingeringeding!")]
 
-rare_reply = [("slapen", "Slaapwel!"),
-              (['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken',
-                'eeten', 'ete', 'etenstijd', 'food', 'lunchables', 'ontbijten'], "Smakelijk!")]
+rare_reply = [("slapen", "Slaapwel!"),]
+              # (['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken',
+              #   'eeten', 'ete', 'etenstijd', 'food', 'lunchables', 'ontbijten'], "Smakelijk!")]
 
 reply_answers = []
 for key, value in always_reply:
