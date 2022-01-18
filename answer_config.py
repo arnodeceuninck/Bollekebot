@@ -66,7 +66,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer(lambda m: choice(cute_pictures) if random() > 0.2 else choice(own_cute_pictures), words_trigger=["panda", "cute"],
                        exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5),
 
-           ReplyAnswer("Hey dad, ik ben Bollekesbot!", bot_only=True, regex_trigger="Hello (.*), I'm dad", prob=0.2),
+           ReplyAnswer("Hey dad, ik ben Bollekebot!", bot_only=True, regex_trigger="Hello (.*), I'm dad", prob=0.2),
 
            ReplyAnswer("Zoals een wijs man ooit zei: \"Als een pauze ni uitloopt, is het dan wel een pauze?\"",
                        custom_trigger=lambda m: m.contains_substring("pauze") and
