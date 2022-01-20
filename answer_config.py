@@ -51,7 +51,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                                 and m.contains_substring("?", match_case=True), prob=0.4),
 
            ReactAnswer("🥴", active_users="Alexander", prob=0.1),
-           ReplyAnswer(lambda m: f"Je hebt {randint(0, 20)}/20", words_trigger="punten", prob=0.3),
+           ReplyAnswer(lambda m: f"Je hebt {randint(0, 20)}/20", words_trigger="punten", exact_trigger=["punten", "!punten", "-punten"], prob=0.3),
            ReplyAnswer(lambda m: get_alphabet_str(), exact_trigger="-alphabet"),
 
            ReplyAnswer(lambda m: "NEGATIEF" if random() > 0.5 else "POSITIEF",
