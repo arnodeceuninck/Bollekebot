@@ -4,7 +4,7 @@ import sys
 from reply_answer import ReplyAnswer
 from react_answer import ReactAnswer
 from function_answer import FunctionAnswer
-from util import get_motivational_quote, get_alphabet_str
+from util import get_motivational_quote, get_alphabet_str, get_punten
 from random import choice, randint, random
 from react_config import react_answers
 from reply_config import reply_answers
@@ -51,7 +51,9 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                                 and m.contains_substring("?", match_case=True), prob=0.4),
 
            ReactAnswer("🥴", active_users="Alexander", prob=0.1),
-           ReplyAnswer(lambda m: f"Je hebt {randint(10, 20)}/20, JE GAAT JE EXAMEN KNALLEN!", words_trigger="punten", exact_trigger=["punten", "!punten", "-punten"], prob=0.3),
+
+           ReplyAnswer(lambda m: get_punten(), words_trigger="punten", exact_trigger=["punten", "!punten", "-punten"], prob=0.3),
+
            ReplyAnswer(lambda m: get_alphabet_str(), exact_trigger="-alphabet"),
 
            ReplyAnswer(lambda m: "NEGATIEF" if random() > 0.5 else "POSITIEF",

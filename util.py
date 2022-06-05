@@ -1,5 +1,6 @@
 from random import random, choice
 from config import quotes, letter_emojis, motivation
+import numpy as np
 
 
 def multi_char_remove(string, chars_to_remove):
@@ -53,3 +54,19 @@ def get_alphabet_str():
     for letter in letter_emojis:
         reaction += f"{letter_emojis[letter]}\n"
     return reaction
+
+
+def get_punten():
+    punten = -1
+    while punten > 20 or punten < 0:
+        punten = int(np.random.normal(7, 3))
+    punten_message = f"Je hebt {punten}/20, "
+    if punten <= 7:
+        punten_message += "maak dus dat je weer aan het studeren bent, ik geloof in jou, dus stel mij niet teleur!!!"
+    elif punten <= 10:
+        punten_message += "delibereerbaar, maar nog even op je tanden bijten! Komaan, YOU CAN DO THIS!!!"
+    elif punten <= 13:
+        punten_message += "das erdoor, maar ik ben nu ni de slimste bot, dus nog even alles geven en je gaat da examen knallen!"
+    else:
+        punten_message += " goed bezig! Blijf goed doorstuderen en voor je het weet is dit effectief het aantal punten dat je op je examen krijgt!"
+    return punten_message
