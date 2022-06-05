@@ -17,7 +17,6 @@
 "Vision without execution is just hallucination."
 "You have three choices: give up, give in or give it everything you have got."
 "If you really want to do something, you'll find a way. If you don't, you'll find an excuse."
-"Successful people are not gifted. They just work hard, then succeed on purpose."
 "If you can believe it, your mind can achieve it."
 "So many of our dreams at first seem impossible, then they seem improbable, and then, when we summon the will, they soon become inevitable."
 "Productivity is about looking forward. Looking back too much, or trying to be too much of a perfectionist, can destroy that productivity. So keep going. Keep creating. Keep building."
@@ -59,7 +58,7 @@
 "Climb mountains not so the world can see you, but so you can see the world."
 "Genius is 1% inspiration and 99% perspiration. Accordingly, a genius is often merely a talented person who has done all of his or her homework."
 "The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge."
-"Live as if you were to die tomorrow. Learn as if you were to live forever."
+"Live as if you were to die tomorrow. Learn as if you were to live forever." - Mahatma Gandhi
 "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do."
 "There are no secrets to success. It is the result of preparation, hard work, and learning from failure."
 "In order to succeed, your desire for success should be greater than your fear of failure."
@@ -178,3 +177,21 @@ Geen stress. Doe je best. Vergeet de rest. - Anoniem
 Een reis van duizend mijl begint met een enkele stap. - Confucius
 Elk jaar studeren vele, vele domme mensen af aan de universiteit. En als zij het kunnen, kunt u dat ook. - John Green
 Als je iets probeert te bereiken, zullen er wegversperringen zijn. Ik heb ze gehad; iedereen heeft ze gehad. Maar obstakels hoeven je niet te stoppen. Als je tegen een muur aanloopt, draai je dan niet om en geef het op. Zoek uit hoe je erop kunt klimmen, erdoorheen kunt gaan of eromheen kunt werken. - Michael Jordan
+"Optimism is a happiness magnet. If you stay positive, good things and good people will be drawn to you." - Mary Lou Retton
+"Your positive action combined with positive thinking results in success." - Shiv Khera
+"Start where you are. Use what you have. Do what you can." - Arthur Ashe
+"To be an overachiever you have to be an over-believer." - Dabo Swinney
+"Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence." - Helen Keller
+"Fall seven times, stand up eight." - Japanese Proverb
+"I’ve failed over and over and over again in my life. And that is why I succeed." - Michael Jordan
+"Go into the world and do well. But more importantly, go into the world and do good." - Minor Myers Jur
+"Self-discipline is self-caring." - M. Scott Peck
+"Be patient with yourself. Self-growth is tender; it’s holy ground. There’s no greater investment." - Stephen Covey
+"Just believe in yourself. Even if you don’t pretend that you do and, at some point, you will.” -Venus Williams
+"You are braver than you believe, stronger than you seem and smarter than you think." - A.A Milne
+"Perseverance is not a long race; it is many short races one after the other." - Walter Elliot
+"You don’t drown by falling in the water; you drown by staying there." - Ed Cole
+"The more that you read, the more things you will know, the more that you learn, the more places you’ll go." - Dr. Seuss
+"Everything’s always ending. But everything’s always beginning, too." - Patrick Ness
+"Education is something we have to keep pursuing day after day." - Premier Brian Gallant
+"The best way to predict your future is to create it." - Abraham Lincoln
