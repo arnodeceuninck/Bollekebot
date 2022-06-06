@@ -59,7 +59,7 @@ def get_alphabet_str():
 def get_punten():
     punten = -1
     while punten > 20 or punten < 0:
-        punten = int(np.random.normal(9, 3))
+        punten = int(np.random.normal(11, 3))
     punten_message = f"Je hebt {punten}/20, "
     if punten <= 4:
         punten_message += "zet alles van afleidingen opzij en begin weer te studeren, ik geloof in jou, dus stel mij niet teleur!!!"
