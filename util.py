@@ -63,7 +63,7 @@ def get_punten():
     punten_message = f"Je hebt {punten}/20, "
     if punten <= 4:
         punten_message += "zet alles van afleidingen opzij en begin weer te studeren, ik geloof in jou, dus stel mij niet teleur!!!"
-    elif punten <= 6:
+    elif punten <= 7:
         punten_message += "komaan, je hebt nog wat te doen, maar je kan het!"
     elif punten < 10:
         punten_message += "delibereerbaar, maar nog even op je tanden bijten! Komaan, YOU CAN DO THIS!!!"
