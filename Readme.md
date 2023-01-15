@@ -15,7 +15,7 @@
 Note: Be careful with imports. 
 
 ## Voice Reaction
-For the voice reactions to work (e.g. with !yeswecan, the bot joins the voice channel and plays the YES WE CAN sound from Obama), you need to install ffmpeg and add it to your PATH (just use apt for linux, windows: https://phoenixnap.com/kb/ffmpeg-windows).
+For the voice reactions to work (e.g. with !yeswecan, the bot joins the voice channel and plays the YES WE CAN sound from Obama), you need to install ffmpeg and add it to your PATH (probably already installed in linux; windows: https://phoenixnap.com/kb/ffmpeg-windows).
 
 ## TODO's
 - Roll a dice of specified size

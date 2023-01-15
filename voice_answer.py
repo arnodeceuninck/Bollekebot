@@ -21,8 +21,10 @@ class VoiceAnswer(Answer):
 
         voice_channel = author_voice.channel
 
+        audio_source = discord.FFmpegPCMAudio(self.file_path)
+
         voice_client = await voice_channel.connect()
-        voice_client.play(discord.FFmpegPCMAudio(self.file_path))
+        voice_client.play(audio_source)
 
         while voice_client.is_playing():
             pass
