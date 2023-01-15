@@ -3,6 +3,7 @@ import sys
 
 from reply_answer import ReplyAnswer
 from react_answer import ReactAnswer
+from voice_answer import VoiceAnswer
 from function_answer import FunctionAnswer
 from util import get_motivational_quote, get_alphabet_str, get_punten
 from random import choice, randint, random
@@ -75,6 +76,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                                 (m.contains_substring("lopen") or m.contains_substring("loop") or m.contains_substring("liep"))
                                                 and m.contains_substring("uit")),
            ReactAnswer("🤮", custom_trigger=lambda m: m.contains_word("SE", match_case=True)),
+           VoiceAnswer("yeswecan.mp3", exact_trigger=["!yeswecan", "!barackske"])
            ]
 
 answers += react_answers
