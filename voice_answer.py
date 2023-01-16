@@ -1,5 +1,6 @@
 from answer import Answer
 import discord
+import asyncio
 
 
 class VoiceAnswer(Answer):
@@ -27,7 +28,7 @@ class VoiceAnswer(Answer):
         voice_client.play(audio_source)
 
         while voice_client.is_playing():
-            pass
+            await asyncio.sleep(5)
 
         await voice_client.disconnect()
 
