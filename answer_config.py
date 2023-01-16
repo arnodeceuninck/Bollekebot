@@ -79,7 +79,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                                     "loop") or m.contains_substring("liep"))
                                                 and m.contains_substring("uit")),
            ReactAnswer("🤮", custom_trigger=lambda m: m.contains_word("SE", match_case=True)),
-           VoiceAnswer("yeswecan.mp3", exact_trigger=["!yeswecan", "!barackske"]),
+           VoiceAnswer("yeswecan-mnm.mp3", exact_trigger=["!yeswecan", "!barackske"]),
            VoiceAnswer("youcandoit.mp3", exact_trigger=["!youcandoit"])
            ]
 

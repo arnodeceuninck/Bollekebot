@@ -1,6 +1,7 @@
 from answer import Answer
 import discord
 import asyncio
+import audioread
 
 
 class VoiceAnswer(Answer):
@@ -27,8 +28,9 @@ class VoiceAnswer(Answer):
         voice_client = await voice_channel.connect()
         voice_client.play(audio_source)
 
-        while voice_client.is_playing():
-            await asyncio.sleep(5)
+        with audioread.audio_open(self.file_path) as f:
+            # solution based on https://github.com/YorbenJoosen/Gerbinbot_3000/blob/88f78fd1ddf5f4492bab1fcdf8b91d45fa3aec24/Useful/messagereply.py#L26
+            await asyncio.sleep(f.duration)
 
         await voice_client.disconnect()
 
