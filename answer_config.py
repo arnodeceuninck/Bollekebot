@@ -53,7 +53,8 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
 
            ReactAnswer("🥴", active_users="Alexander", prob=0.1),
 
-           ReplyAnswer(lambda m: get_punten(), words_trigger="punten", exact_trigger=["punten", "!punten", "-punten"], prob=0.3),
+           ReplyAnswer(lambda m: get_punten(), words_trigger="punten", exact_trigger=["punten", "!punten", "-punten"],
+                       prob=0.3),
 
            ReplyAnswer(lambda m: get_alphabet_str(), exact_trigger="-alphabet"),
 
@@ -66,17 +67,20 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            ReplyAnswer("", image="boommarter.png", words_trigger="boommarter"),
            FunctionAnswer(lambda m: sys.stdout.flush(), exact_trigger="-flush"),
 
-           ReplyAnswer(lambda m: choice(cute_pictures) if random() > 0.2 else choice(own_cute_pictures), words_trigger=["panda", "cute"],
+           ReplyAnswer(lambda m: choice(cute_pictures) if random() > 0.2 else choice(own_cute_pictures),
+                       words_trigger=["panda", "cute"],
                        exact_trigger=["!cute", "!panda", "!schattig", "!animal", "!dier"], prob=0.5),
 
            ReplyAnswer("Hey dad, ik ben Bollekebot!", bot_only=True, regex_trigger="Hello (.*), I'm dad", prob=0.2),
 
            ReplyAnswer("Zoals een wijs man ooit zei: \"Als een pauze ni uitloopt, is het dan wel een pauze?\"",
                        custom_trigger=lambda m: m.contains_substring("pauze") and
-                                                (m.contains_substring("lopen") or m.contains_substring("loop") or m.contains_substring("liep"))
+                                                (m.contains_substring("lopen") or m.contains_substring(
+                                                    "loop") or m.contains_substring("liep"))
                                                 and m.contains_substring("uit")),
            ReactAnswer("🤮", custom_trigger=lambda m: m.contains_word("SE", match_case=True)),
-           VoiceAnswer("yeswecan.mp3", exact_trigger=["!yeswecan", "!barackske"])
+           VoiceAnswer("yeswecan.mp3", exact_trigger=["!yeswecan", "!barackske"]),
+           VoiceAnswer("youcandoit.mp3", exact_trigger=["!youcandoit"])
            ]
 
 answers += react_answers
