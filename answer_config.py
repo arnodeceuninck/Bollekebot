@@ -80,7 +80,8 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
                                                 and m.contains_substring("uit")),
            ReactAnswer("🤮", custom_trigger=lambda m: m.contains_word("SE", match_case=True)),
            VoiceAnswer("yeswecan-mnm.mp3", exact_trigger=["!yeswecan", "!barackske"]),
-           VoiceAnswer("youcandoit.mp3", exact_trigger=["!youcandoit"])
+           VoiceAnswer("youcandoit.mp3", exact_trigger=["!youcandoit"]),
+           ReplyAnswer("tijd om te gaan blokken", image="cato-hoelaat.jpeg", exact_trigger=["!hoelaatishet"]),
            ]
 
 answers += react_answers
