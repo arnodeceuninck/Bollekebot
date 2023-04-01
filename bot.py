@@ -46,5 +46,21 @@ async def on_raw_reaction_add(reaction):
     if reaction.emoji.name == '🚣‍♂️' and reaction.user_id == get_my_user_id():  # emoji is man rowing boat
         await get_message(reaction.channel_id, reaction.message_id, client).reply(get_motivational_quote())
 
+@client.event
+async def on_voice_state_update(member, before, after):
+
+    bibvriendjes_voice = 1055831367495196722
+    bibvriendjes_chat = 1091843831768555570
+
+    bottest_voice = 802509903540912192
+    bottest_chat = 802509903540912191
+
+    channels = {bottest_voice: bottest_chat, bibvriendjes_voice: bibvriendjes_chat}
+
+    # if a user joins voice channel 802509903540912192 and is alone there, send a message in text channel 802509903540912191
+    if after.channel is not None and len(after.channel.members) == 1 and after.channel.id in channels:
+        text_channel = client.get_channel(channels[after.channel.id])
+        await text_channel.send(f"{member.display_name} is studying. Feel free to join!")
+
 
 client.run(TOKEN)
