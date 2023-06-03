@@ -82,6 +82,7 @@ answers = [ReplyAnswer(lambda m: get_motivational_quote(),
            VoiceAnswer("yeswecan-mnm.mp3", exact_trigger=["!yeswecan", "!barackske"]),
            VoiceAnswer("youcandoit.mp3", exact_trigger=["!youcandoit"]),
            ReplyAnswer("tijd om te gaan blokken", image="cato-hoelaat.jpeg", exact_trigger=["!hoelaatishet"]),
+           ReplyAnswer("studeer is ne keer nondeju 🔫", exact_trigger=["!studeer"]),
            ]
 
 answers += react_answers
