@@ -1,4 +1,9 @@
-TOKEN = "ENTER YOUR DISCORD TOKEN HERE"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Used when adding letter-per-letter emoji reactions on a message
 letter_emojis = {"a": "🇦🅰🔼👖🙈🩳🦑", "b": "🇧🅱️", "c": "🇨◀️", "d": "🇩▶👂🦻", "e": "🇪💶🎼📧🟦", "f": "🇫🤏",

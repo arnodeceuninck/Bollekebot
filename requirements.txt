@@ -6,9 +6,10 @@ discord==1.0.1
 discord.py==1.7.3
 idna==3.1
 multidict==5.1.0
-pkg-resources
+#pkg-resources
 typing-extensions==3.7.4.3
 yarl==1.6.3
 numpy
 pynacl
 audioread
+python-dotenv==1.0.1
