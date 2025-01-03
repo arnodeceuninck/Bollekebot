@@ -27,6 +27,7 @@ always_react = [("p leave", "👋"),
                 (['king', 'mking', 'deceuninck', 'koning'], "👑"),
                 (['sneeuw', 'sneeuwman', 'sneeuwt', 'sneeuwen'], "☃"),
                 ('pauze', "⏸"),
+                (['slaapwel', "slapen", "dutje", "moe"], "💤"),
                 (['eten', 'lunchen', 'dinner', 'voedsel', 'lunch', 'ontbijt', 'breakfast', 'brunch', 'snack', 'snacken',
                 'eeten', 'ete', 'etenstijd', 'food', 'lunchables', 'ontbijten'], "🧀")]
 
